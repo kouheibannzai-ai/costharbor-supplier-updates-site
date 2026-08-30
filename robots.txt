@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://example.invalid/supplier-price-guard-site/sitemap.xml
-
+Sitemap: https://kouheibannzai-ai.github.io/supplier-price-guard-site/sitemap.xml

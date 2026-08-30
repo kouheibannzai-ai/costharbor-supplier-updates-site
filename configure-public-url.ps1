@@ -21,8 +21,7 @@ foreach ($file in $files) {
     $path = Join-Path $PSScriptRoot $file
     $content = Get-Content -Raw -LiteralPath $path
     $content = $content.Replace($placeholder, $normalized)
-    Set-Content -LiteralPath $path -Value $content -Encoding utf8NoBOM
+    Set-Content -LiteralPath $path -Value $content.TrimEnd() -Encoding utf8NoBOM -NoNewline
 }
 
 Write-Host "Configured canonical and discovery URLs for $normalized"
-
