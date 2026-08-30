@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://example.invalid/supplier-price-guard-site/sitemap.xml
+
