@@ -17,6 +17,7 @@
     if (url) {
       link.href = url;
       link.removeAttribute("aria-disabled");
+      link.removeAttribute("tabindex");
       link.textContent = "View on WordPress.org";
     } else {
       link.addEventListener("click", function (event) {
