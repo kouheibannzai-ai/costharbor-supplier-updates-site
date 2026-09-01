@@ -1,6 +1,6 @@
-# Supplier Price Guard website
+# CostHarbor Supplier Updates for WooCommerce website
 
-Static product documentation for Supplier Price Guard. The site uses plain HTML, CSS, and a small amount of dependency-free JavaScript.
+Static product documentation for CostHarbor Supplier Updates for WooCommerce. The site uses plain HTML, CSS, and a small amount of dependency-free JavaScript.
 
 ## Local preview
 
@@ -32,4 +32,3 @@ When the WordPress.org listing is approved, add its exact URL to `pluginDirector
 6. After GitHub provides the Pages URL, run `configure-public-url.ps1` with that exact URL, commit, and push.
 
 No build step or third-party service is required.
-

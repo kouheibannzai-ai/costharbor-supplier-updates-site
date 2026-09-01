@@ -32,5 +32,5 @@ createServer(async (request, response) => {
     response.end("Not found");
   }
 }).listen(8080, "127.0.0.1", () => {
-  console.log("Supplier Price Guard site: http://127.0.0.1:8080/");
+  console.log("CostHarbor Supplier Updates for WooCommerce site: http://127.0.0.1:8080/");
 });

@@ -13,7 +13,7 @@
   }
 
   document.querySelectorAll("[data-plugin-link]").forEach(function (link) {
-    var url = window.SPG_SITE_CONFIG && window.SPG_SITE_CONFIG.pluginDirectoryUrl;
+    var url = window.COSTHARBOR_SITE_CONFIG && window.COSTHARBOR_SITE_CONFIG.pluginDirectoryUrl;
     if (url) {
       link.href = url;
       link.removeAttribute("aria-disabled");

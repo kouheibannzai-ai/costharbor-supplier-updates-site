@@ -4,7 +4,7 @@ param(
     [string] $PublicUrl
 )
 
-$placeholder = 'https://example.invalid/supplier-price-guard-site/'
+$placeholder = 'https://example.invalid/costharbor-supplier-updates-site/'
 $normalized = $PublicUrl.TrimEnd('/') + '/'
 $files = @(
     'index.html',
