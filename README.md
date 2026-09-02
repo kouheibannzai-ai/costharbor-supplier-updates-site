@@ -20,7 +20,7 @@ Replace the placeholder site origin in canonical, Open Graph, sitemap, and robot
 .\configure-public-url.ps1 -PublicUrl 'https://YOUR-ACCOUNT.github.io/YOUR-REPOSITORY/'
 ```
 
-When the WordPress.org listing is approved, add its exact URL to `pluginDirectoryUrl` in `site-config.js`. Until then, the site deliberately shows a non-clickable review-pending control.
+The approved WordPress.org directory URL is configured in `pluginDirectoryUrl` in `site-config.js`.
 
 ## GitHub Pages
 
