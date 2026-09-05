@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Getting Started — CostHarbor Supplier Updates for WooCommerce</title>
+  <meta name="description" content="Prepare a supplier cost CSV, preview guarded WooCommerce cost and regular-price changes, apply reviewed rows, and roll back the latest import with CostHarbor 0.1.3.">
+  <link rel="canonical" href="https://kouheibannzai-ai.github.io/costharbor-supplier-updates-site/getting-started.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Get started with CostHarbor Supplier Updates for WooCommerce">
+  <meta property="og:description" content="A practical v0.1.3 walkthrough from catalog template to Preview, Apply, and Rollback.">
+  <meta property="og:image" content="https://kouheibannzai-ai.github.io/costharbor-supplier-updates-site/assets/banner-1544x500.png">
+  <meta property="og:url" content="https://kouheibannzai-ai.github.io/costharbor-supplier-updates-site/getting-started.html">
+  <link rel="icon" href="assets/icon-128x128.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="index.html"><img src="assets/icon-128x128.png" alt="" width="38" height="38">CostHarbor Supplier Updates for WooCommerce</a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-navigation">Menu</button>
+    <nav class="site-nav" id="site-navigation" data-navigation aria-label="Main navigation"><a href="index.html">Home</a><a href="getting-started.html">Get Started</a><a href="how-it-works.html">How It Works</a><a href="documentation.html">Documentation</a><a href="faq.html">FAQ</a><a href="privacy.html">Privacy</a><a href="changelog.html">Changelog</a></nav>
+  </div></header>
+
+  <main id="main">
+    <section class="page-hero"><div class="container guide-hero">
+      <div><p class="eyebrow">Getting started · v0.1.3</p><h1>From your supplier CSV to a reviewed WooCommerce update.</h1><p class="lead">Use this walkthrough if your store already has products with unique SKUs and you have supplier costs to enter. CostHarbor shows proposed changes before it writes them.</p>
+        <div class="actions"><a class="button button-primary" href="https://wordpress.org/plugins/costharbor-supplier-updates/" data-plugin-link>Get the plugin on WordPress.org</a><a class="button button-secondary" href="assets/examples/costharbor-getting-started.csv" download>Download the test CSV</a></div>
+      </div>
+      <aside class="guide-summary" aria-label="Important behavior in version 0.1.3"><strong>Know before you apply</strong><p>Version 0.1.3 updates both CostHarbor Supplier Cost and the Regular Price calculated by your pricing rule. Cost-only mode is not available.</p></aside>
+    </div></section>
+
+    <div class="container content-layout guide-layout">
+      <aside class="toc" aria-label="On this page"><strong>On this page</strong><a href="#before">Before you begin</a><a href="#install">Install and open</a><a href="#template">Prepare a CSV</a><a href="#upload">Upload and configure</a><a href="#preview">Read the Preview</a><a href="#apply">Apply</a><a href="#rollback">Rollback</a><a href="#limits">Limits and support</a></aside>
+      <article class="prose guide-prose">
+        <section id="before"><h2>Before you begin</h2><p>CostHarbor is for an existing WooCommerce catalog where each product or variation you want to update has a unique SKU. Your supplier file needs at least an SKU column and a positive Supplier Cost column.</p><div class="callout callout-warning"><strong>Version 0.1.3 changes two values.</strong> For each applied row, it stores Supplier Cost and sets the WooCommerce Regular Price calculated from Markup or Target Margin. Uploading, mapping, and building a Preview do not change products.</div></section>
+
+        <section id="install"><h2>1. Install and open CostHarbor</h2><ol><li>Install and activate WooCommerce.</li><li>Install and activate CostHarbor from <a href="https://wordpress.org/plugins/costharbor-supplier-updates/">WordPress.org</a>.</li><li>In WordPress Admin, open <strong>WooCommerce → CostHarbor Supplier Updates for WooCommerce</strong>.</li></ol><p>The first screen explains the no-write-before-Apply workflow and provides catalog and blank templates.</p><figure class="guide-shot"><img src="assets/screenshots/getting-started/01-first-run-template.png" alt="CostHarbor first-run screen with catalog and blank template download buttons and CSV requirements" width="1360" height="772"><figcaption>Start with the catalog template from the store you intend to update.</figcaption></figure></section>
+
+        <section id="template"><h2>2. Download the catalog template and enter costs</h2><p>Choose <strong>Download catalog template</strong>. CostHarbor generates a UTF-8 CSV containing the SKU and product name for existing simple products and variations. Existing CostHarbor Supplier Cost values are included when available. Enter the new Supplier Cost only for the rows you intend to review.</p><pre class="csv-example"><code>SKU,Supplier Cost,Product Name
+HARBOR-MUG,80.00,Harbor Mug
+DOCK-LAMP,300.00,Dock Lamp</code></pre><p>The catalog template is the recommended route for a real store because its SKUs come from that store. The downloadable test CSV below uses fictional products and is intended for a disposable test catalog.</p><p><a class="button button-secondary" href="assets/examples/costharbor-getting-started.csv" download>Download fictional test CSV</a></p><div class="callout"><strong>The CSV does not create products.</strong> If these fictional SKUs do not exist in your catalog, their rows appear as Blocked and are skipped.</div></section>
+
+        <section id="upload"><h2>3. Upload, map, and choose a pricing rule</h2><ol><li>Upload the CSV.</li><li>Map <strong>SKU</strong> and <strong>Supplier Cost</strong>. Product Name and Supplier SKU are optional.</li><li>Choose <strong>Markup %</strong> or <strong>Target Margin %</strong>.</li><li>Enter the percentage and the absolute Regular Price change that should trigger a warning.</li><li>Choose <strong>Build preview</strong>.</li></ol><p>The reproducible example on this page uses <strong>Markup 50%</strong> and a <strong>50% warning threshold</strong>. The formula is <code>Supplier Cost × 1.5</code>.</p></section>
+
+        <section id="preview"><h2>4. Read the Preview</h2><p>Preview is the decision point. It shows old and new Supplier Cost, current and proposed Regular Price, percentage changes, match status, and an explanation for every row.</p><div class="status-grid"><div class="status-card status-ready"><strong>Ready</strong><p>The SKU matched and the row can be applied.</p></div><div class="status-card status-warning"><strong>Warning</strong><p>The price movement reached the configured threshold. It will still be applied if you explicitly continue.</p></div><div class="status-card status-blocked"><strong>Blocked</strong><p>The row is invalid, unmatched, duplicate, or ambiguous. It is skipped during Apply.</p></div></div><figure class="guide-shot guide-shot-wide"><img src="assets/screenshots/getting-started/02-preview.png" alt="CostHarbor Preview with ready rows, a yellow warning row, and red blocked rows" width="1360" height="558"><figcaption>Actual v0.1.3 Preview using the fictional CSV, Markup 50%, and a 50% warning threshold.</figcaption></figure>
+          <div class="table-scroll"><table><thead><tr><th>SKU</th><th>Old cost</th><th>New cost</th><th>Old price</th><th>Proposed price</th><th>Preview status</th></tr></thead><tbody><tr><td>HARBOR-MUG</td><td>50</td><td>80</td><td>100</td><td>120</td><td>Ready</td></tr><tr><td>DOCK-LAMP</td><td>160</td><td>300</td><td>240</td><td>450</td><td>Warning (+87.50%)</td></tr><tr><td>SAIL-BLUE</td><td>50</td><td>40</td><td>80</td><td>60</td><td>Ready</td></tr><tr><td>SAIL-RED</td><td>50</td><td>0</td><td>80</td><td>—</td><td>Blocked: cost must be positive</td></tr><tr><td>UNKNOWN-SKU</td><td>—</td><td>50</td><td>—</td><td>75</td><td>Blocked: SKU not found</td></tr></tbody></table></div>
+        </section>
+
+        <section id="apply"><h2>5. Apply reviewed rows</h2><p>When the Preview is correct, choose <strong>Apply safe rows</strong>. In this example, the two Ready rows and the acknowledged Warning row are applied. The two Blocked rows are skipped.</p><figure class="guide-shot"><img src="assets/screenshots/getting-started/03-apply-result.png" alt="CostHarbor result showing five total rows, three changed, two skipped, one warning, and zero failures" width="1360" height="496"><figcaption>Apply result: 3 changed, 2 skipped, 1 warning, and 0 failed.</figcaption></figure></section>
+
+        <section id="rollback"><h2>6. Roll back the latest import</h2><p>Use <strong>Rollback</strong> in Import History to restore the Supplier Cost and Regular Price saved for the latest applied import. Rollback does not restore the entire site and does not change titles, stock, sale prices, categories, or unrelated metadata.</p><figure class="guide-shot"><img src="assets/screenshots/getting-started/04-rollback-result.png" alt="CostHarbor import history showing the latest fictional CSV import marked rolled_back" width="1360" height="999"><figcaption>The latest import is marked <code>rolled_back</code> after its recorded cost and regular-price values are restored.</figcaption></figure></section>
+
+        <section id="limits"><h2>Limits and support</h2><ul><li>CSV only; XLSX is not supported.</li><li>Maximum 10 MB and 10,000 data rows.</li><li>Comma, semicolon, tab, and pipe delimiters are detected. UTF-8 is recommended.</li><li>Exact product or variation SKU matching; no fuzzy matching and no product creation.</li><li>Supplier Cost must be a supported number greater than zero.</li><li>No Cost-only mode, scheduled imports, remote URL imports, supplier API, or currency conversion.</li><li>CostHarbor retains its own Supplier Cost and synchronizes through WooCommerce public native COGS methods when available.</li><li>CSV and store data are processed inside WordPress and are not sent to an external server.</li></ul><div class="actions"><a class="button button-primary" href="documentation.html">Read full documentation</a><a class="button button-secondary" href="https://wordpress.org/support/plugin/costharbor-supplier-updates/">Ask in the WordPress.org support forum</a></div></section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-grid"><div><a class="brand" href="index.html"><img src="assets/icon-128x128.png" alt="" width="38" height="38">CostHarbor Supplier Updates for WooCommerce</a><p>A free, safety-focused supplier cost update tool for WooCommerce. No external services or telemetry in the current version.</p></div><nav class="footer-links" aria-label="Footer"><a href="getting-started.html">Get Started</a><a href="documentation.html">Docs</a><a href="faq.html">FAQ</a><a href="privacy.html">Privacy</a><a href="https://wordpress.org/support/plugin/costharbor-supplier-updates/">Support</a></nav></div></footer>
+  <script src="site-config.js"></script><script src="script.js"></script>
+</body>
+</html>
